@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Structure & Semantic HTML Guide</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        h2 {
+            color: #0f172a;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 5px;
+        }
+
+        section {
+            background: #fff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+        }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #cbd5e1;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Preview Styles */
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        .preview header,
+        .preview nav,
+        .preview main,
+        .preview section,
+        .preview article,
+        .preview aside,
+        .preview footer {
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .preview header {
+            background: #dbeafe;
+        }
+
+        .preview nav {
+            background: #bfdbfe;
+        }
+
+        .preview main {
+            background: #dcfce7;
+        }
+
+        .preview section {
+            background: #fef3c7;
+        }
+
+        .preview article {
+            background: #fde68a;
+        }
+
+        .preview aside {
+            background: #fecaca;
+        }
+
+        .preview footer {
+            background: #ddd6fe;
+        }
+
+        .box {
+            border: 2px solid #555;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+        .html-box {
+            background: #e0f2fe;
+        }
+
+        .head-box {
+            background: #fde68a;
+        }
+
+        .body-box {
+            background: #dcfce7;
+        }
+
+        .doctype-box {
+            background: #fecaca;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .note {
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📘 HTML Structure & Semantic HTML Guide</h1>
+
+    <!-- ==================================== -->
+    <!-- BASIC HTML STRUCTURE -->
+    <!-- ==================================== -->
+
+    <section>
+
+        <h2>1. Basic HTML Structure (Code)</h2>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport"
+              content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;My Web Page&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Welcome&lt;/h1&gt;
+        &lt;p&gt;Hello World&lt;/p&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+        <h2>2. Visual Preview of Basic HTML Structure</h2>
+
+        <div class="doctype-box">
+            &lt;!DOCTYPE html&gt;
+        </div>
+
+        <div class="box html-box">
+            &lt;html&gt;
+
+            <div class="box head-box">
+                &lt;head&gt;
+                <ul>
+                    <li>&lt;meta charset="UTF-8"&gt;</li>
+                    <li>&lt;meta name="viewport"&gt;</li>
+                    <li>&lt;title&gt;My Web Page&lt;/title&gt;</li>
+                </ul>
+                &lt;/head&gt;
+            </div>
+
+            <div class="box body-box">
+                &lt;body&gt;
+                <ul>
+                    <li>&lt;h1&gt;Welcome&lt;/h1&gt;</li>
+                    <li>&lt;p&gt;Hello World&lt;/p&gt;</li>
+                </ul>
+                &lt;/body&gt;
+            </div>
+
+            &lt;/html&gt;
+        </div>
+
+        <p class="note">
+            The browser reads the document from <strong>DOCTYPE → html → head → body</strong>.
+            Only the content inside the <code>&lt;body&gt;</code> is displayed on the webpage.
+        </p>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Definition</th>
+            </tr>
+
+            <tr>
+                <td>&lt;!DOCTYPE html&gt;</td>
+                <td>Declares that the document uses HTML5.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;html&gt;</td>
+                <td>The root element that wraps the entire HTML document.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;head&gt;</td>
+                <td>Contains metadata, styles, scripts, and the page title.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;meta charset="UTF-8"&gt;</td>
+                <td>Specifies UTF-8 character encoding.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;meta viewport&gt;</td>
+                <td>Makes the page responsive on mobile devices.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;title&gt;</td>
+                <td>Sets the text displayed on the browser tab.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;body&gt;</td>
+                <td>Contains everything visible to the user.</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- ==================================== -->
+    <!-- SEMANTIC HTML -->
+    <!-- ==================================== -->
+
+    <section>
+
+        <h2>3. Semantic HTML Structure (Code)</h2>
+
+<pre>
+&lt;header&gt;
+    &lt;h1&gt;Website&lt;/h1&gt;
+    &lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+
+    &lt;section&gt;
+        General Content
+    &lt;/section&gt;
+
+    &lt;article&gt;
+        Blog Post
+    &lt;/article&gt;
+
+    &lt;aside&gt;
+        Sidebar
+    &lt;/aside&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    Copyright
+&lt;/footer&gt;
+</pre>
+
+        <h2>4. Visual Preview of Semantic HTML</h2>
+
+        <div class="preview">
+
+            <header>
+                &lt;header&gt;
+
+                <nav>
+                    &lt;nav&gt;
+                    Navigation Menu
+                    &lt;/nav&gt;
+                </nav>
+
+            </header>
+
+            <main>
+
+                &lt;main&gt;
+
+                <section>
+
+                    &lt;section&gt;
+
+                    <p>
+                        General page content.
+                    </p>
+
+                    &lt;/section&gt;
+
+                </section>
+
+                <article>
+
+                    &lt;article&gt;
+
+                    <p>
+                        Independent article or blog post.
+                    </p>
+
+                    &lt;/article&gt;
+
+                </article>
+
+                <aside>
+
+                    &lt;aside&gt;
+
+                    <p>
+                        Sidebar or related links.
+                    </p>
+
+                    &lt;/aside&gt;
+
+                </aside>
+
+                &lt;/main&gt;
+
+            </main>
+
+            <footer>
+
+                &lt;footer&gt;
+
+                © 2026 My Website
+
+                &lt;/footer&gt;
+
+            </footer>
+
+        </div>
+
+        <table>
+
+            <tr>
+                <th>Semantic Tag</th>
+                <th>Definition</th>
+            </tr>
+
+            <tr>
+                <td>&lt;header&gt;</td>
+                <td>Represents introductory content like logos, titles, or navigation.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;nav&gt;</td>
+                <td>Contains navigation links for the website.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;main&gt;</td>
+                <td>Represents the primary content of the page.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;section&gt;</td>
+                <td>Groups related content into a logical section.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;article&gt;</td>
+                <td>Represents self-contained content such as a blog post or news article.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;aside&gt;</td>
+                <td>Contains supplementary information like sidebars or related links.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;footer&gt;</td>
+                <td>Represents the footer of a page or section.</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- ==================================== -->
+    <!-- COMPARISON -->
+    <!-- ==================================== -->
+
+    <section>
+
+        <h2>5. Basic HTML vs Semantic HTML</h2>
+
+        <table>
+
+            <tr>
+                <th>Basic HTML</th>
+                <th>Semantic HTML</th>
+            </tr>
+
+            <tr>
+                <td>Uses generic tags such as <code>&lt;div&gt;</code>.</td>
+                <td>Uses meaningful tags such as <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.</td>
+            </tr>
+
+            <tr>
+                <td>Mainly defines structure.</td>
+                <td>Defines both structure and meaning.</td>
+            </tr>
+
+            <tr>
+                <td>Less descriptive for accessibility and search engines.</td>
+                <td>Improves accessibility and SEO.</td>
+            </tr>
+
+            <tr>
+                <td>Example: <code>&lt;div class="header"&gt;</code></td>
+                <td>Example: <code>&lt;header&gt;</code></td>
+            </tr>
+
+        </table>
+
+    </section>
+
+</body>
+</html>

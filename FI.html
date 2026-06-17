@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms & Input Elements Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 30px;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        pre {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .preview {
+            border: 2px dashed #888;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            max-width: 450px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin-top: 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            background: #eef8ff;
+            border-left: 5px solid #0077cc;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #0077cc;
+            color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HTML Forms & Input Elements</h1>
+
+<section>
+
+<h2>Code Example</h2>
+
+<pre>
+&lt;form&gt;
+    &lt;label&gt;Name&lt;/label&gt;
+    &lt;input type="text"&gt;
+
+    &lt;label&gt;Email&lt;/label&gt;
+    &lt;input type="email"&gt;
+
+    &lt;label&gt;Password&lt;/label&gt;
+    &lt;input type="password"&gt;
+
+    &lt;label&gt;Age&lt;/label&gt;
+    &lt;input type="number"&gt;
+
+    &lt;label&gt;Date of Birth&lt;/label&gt;
+    &lt;input type="date"&gt;
+
+    &lt;label&gt;Gender&lt;/label&gt;
+    &lt;input type="radio"&gt; Male
+    &lt;input type="radio"&gt; Female
+
+    &lt;label&gt;Skills&lt;/label&gt;
+    &lt;input type="checkbox"&gt; HTML
+    &lt;input type="checkbox"&gt; CSS
+
+    &lt;label&gt;Country&lt;/label&gt;
+    &lt;select&gt;
+        &lt;option&gt;India&lt;/option&gt;
+        &lt;option&gt;USA&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label&gt;Comments&lt;/label&gt;
+    &lt;textarea&gt;&lt;/textarea&gt;
+
+    &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<h2>Live Preview</h2>
+
+<div class="preview">
+
+<form id="demoForm">
+
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Enter your name">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Enter your email">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Enter password">
+
+    <label for="age">Age</label>
+    <input id="age" type="number" placeholder="Enter your age">
+
+    <label for="dob">Date of Birth</label>
+    <input id="dob" type="date">
+
+    <label>Gender</label>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+
+    <label>Skills</label>
+    <input type="checkbox" name="skills" value="HTML"> HTML
+    <input type="checkbox" name="skills" value="CSS"> CSS
+    <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+
+    <label for="country">Country</label>
+    <select id="country">
+        <option>India</option>
+        <option>USA</option>
+        <option>Canada</option>
+        <option>Australia</option>
+    </select>
+
+    <label for="comments">Comments</label>
+    <textarea id="comments" rows="4" placeholder="Write your comments"></textarea>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+
+</form>
+
+<div id="result">
+    <strong>No data submitted yet.</strong>
+</div>
+
+</div>
+
+<h2>Definitions</h2>
+
+<table>
+    <tr>
+        <th>Element</th>
+        <th>Purpose</th>
+    </tr>
+
+    <tr>
+        <td>&lt;form&gt;</td>
+        <td>Creates a form for collecting user input.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;label&gt;</td>
+        <td>Displays a label for an input field.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="text"&gt;</td>
+        <td>Accepts single-line text.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="email"&gt;</td>
+        <td>Accepts email addresses.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="password"&gt;</td>
+        <td>Hides entered characters.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="number"&gt;</td>
+        <td>Accepts numeric input.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="date"&gt;</td>
+        <td>Allows date selection.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="radio"&gt;</td>
+        <td>Lets users select one option from a group.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;input type="checkbox"&gt;</td>
+        <td>Lets users select multiple options.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;select&gt;</td>
+        <td>Creates a drop-down list.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;option&gt;</td>
+        <td>Represents an item inside a drop-down list.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;textarea&gt;</td>
+        <td>Accepts multi-line text input.</td>
+    </tr>
+
+    <tr>
+        <td>&lt;button&gt;</td>
+        <td>Creates clickable buttons such as Submit or Reset.</td>
+    </tr>
+</table>
+
+</section>
+
+<script>
+document.getElementById("demoForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const gender =
+        document.querySelector('input[name="gender"]:checked')?.value ||
+        "Not Selected";
+
+    const skills = Array.from(
+        document.querySelectorAll('input[name="skills"]:checked')
+    )
+    .map(item => item.value)
+    .join(", ") || "None";
+
+    document.getElementById("result").innerHTML = `
+        <h3>Submitted Data Preview</h3>
+        <hr>
+
+        <p><strong>Name:</strong> ${document.getElementById("name").value}</p>
+
+        <p><strong>Email:</strong> ${document.getElementById("email").value}</p>
+
+        <p><strong>Password:</strong> ${document.getElementById("password").value}</p>
+
+        <p><strong>Age:</strong> ${document.getElementById("age").value}</p>
+
+        <p><strong>Date of Birth:</strong> ${document.getElementById("dob").value}</p>
+
+        <p><strong>Gender:</strong> ${gender}</p>
+
+        <p><strong>Skills:</strong> ${skills}</p>
+
+        <p><strong>Country:</strong> ${document.getElementById("country").value}</p>
+
+        <p><strong>Comments:</strong> ${document.getElementById("comments").value}</p>
+    `;
+});
+
+document.getElementById("demoForm").addEventListener("reset", function() {
+    setTimeout(() => {
+        document.getElementById("result").innerHTML =
+            "<strong>No data submitted yet.</strong>";
+    }, 0);
+});
+</script>
+
+</body>
+</html>

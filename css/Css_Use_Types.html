@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Types Demo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style> 
+        .internal-box{
+            background-color: gold;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            border: 4px dashed orange;
+            font-size: 22px;
+            margin: 20px 0;
+            transition: 0.4s;
+        }
+
+        .internal-box:hover{
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>🎨 CSS Demonstration</h1>
+
+    <p class="info">
+        Hover over each box to see effects and understand which CSS method is applied.
+    </p>
+
+    <!-- Inline CSS // can be used for quick, one-off styling that doesn't need to be reused, making it convenient for rapid prototyping or small adjustments. -->
+    <div
+        style="
+            background:#ff4d4d;
+            color:white;
+            padding:20px;
+            font-size:22px;
+            border-radius:10px;
+            margin-bottom:20px;
+            transition:0.4s;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+    >
+        🔴 This uses <b>INLINE CSS</b>
+    </div>
+
+    <!-- Internal CSS -->
+    <div class="internal-box">
+        🟡 This uses <b>INTERNAL CSS</b>
+    </div>
+
+    <!-- External CSS -->
+    <div class="external-box">
+        🟢 This uses <b>EXTERNAL CSS</b>
+    </div>
+
+    <button onclick="changeTheme()">
+        Click Me 🎉
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

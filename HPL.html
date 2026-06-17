@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Headings, Paragraphs & Lists</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        pre {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .preview {
+            border: 2px dashed #888;
+            padding: 15px;
+            margin-top: 15px;
+            background: #fafafa;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #0077cc;
+            color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Headings, Paragraphs & Lists</h1>
+
+    <!-- Headings -->
+    <section>
+        <h2>1. HTML Headings</h2>
+
+        <pre>
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+        </pre>
+
+        <h3>Preview</h3>
+
+        <div class="preview">
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+        </div>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Definition</th>
+            </tr>
+            <tr>
+                <td>&lt;h1&gt;</td>
+                <td>Largest and most important heading.</td>
+            </tr>
+            <tr>
+                <td>&lt;h2&gt; to &lt;h6&gt;</td>
+                <td>Subheadings with decreasing importance and size.</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Paragraph -->
+    <section>
+        <h2>2. HTML Paragraph</h2>
+
+        <pre>
+&lt;p&gt;
+This is a paragraph in HTML.
+It is used to display blocks of text.
+&lt;/p&gt;
+        </pre>
+
+        <h3>Preview</h3>
+
+        <div class="preview">
+            <p>
+                This is a paragraph in HTML.
+                It is used to display blocks of text on a webpage.
+            </p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Definition</th>
+            </tr>
+            <tr>
+                <td>&lt;p&gt;</td>
+                <td>Defines a paragraph of text.</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Lists -->
+    <section>
+        <h2>3. HTML Lists</h2>
+
+        <pre>
+&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Wake Up&lt;/li&gt;
+    &lt;li&gt;Study&lt;/li&gt;
+    &lt;li&gt;Sleep&lt;/li&gt;
+&lt;/ol&gt;
+        </pre>
+
+        <h3>Preview</h3>
+
+        <div class="preview">
+
+            <h4>Unordered List</h4>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Orange</li>
+            </ul>
+
+            <h4>Ordered List</h4>
+            <ol>
+                <li>Wake Up</li>
+                <li>Study</li>
+                <li>Sleep</li>
+            </ol>
+
+        </div>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Definition</th>
+            </tr>
+
+            <tr>
+                <td>&lt;ul&gt;</td>
+                <td>Creates an unordered (bulleted) list.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;ol&gt;</td>
+                <td>Creates an ordered (numbered) list.</td>
+            </tr>
+
+            <tr>
+                <td>&lt;li&gt;</td>
+                <td>Represents an individual list item inside a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</td>
+            </tr>
+        </table>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Dashboard</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    height:100%;
+    overflow:hidden;   /* IMPORTANT: prevent page scroll */
+}
+
+/* BODY LAYOUT */
+body{
+    font-family:Arial, sans-serif;
+    display:flex;
+    height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    background:#1e3a8a;
+    color:white;
+    padding:15px;
+    overflow-y:auto;
+}
+
+.sidebar h2{
+    margin-bottom:15px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    background:#2563eb;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.sidebar button:hover{
+    background:#1d4ed8;
+}
+
+/* MAIN */
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    overflow:hidden;
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    background:#111827;
+    flex-shrink:0;
+}
+
+.tabs button{
+    padding:10px 15px;
+    border:none;
+    background:none;
+    color:white;
+    cursor:pointer;
+}
+
+.tabs button.active{
+    background:#374151;
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    display:flex;
+    overflow:hidden;  /* IMPORTANT */
+}
+
+/* CODE PANEL */
+.codePanel{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid #ccc;
+    overflow:hidden;  /* IMPORTANT */
+}
+
+/* TOOLBAR */
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    background:#333;
+    color:white;
+    padding:8px;
+    flex-shrink:0;
+}
+
+/* CODE AREA (ONLY SCROLL AREA) */
+pre{
+    flex:1;
+    overflow:auto;     /* ONLY THIS SCROLLS */
+    background:#1e1e1e;
+    color:#00ff99;
+    padding:10px;
+    font-family:Consolas, monospace;
+    font-size:14px;
+    line-height:1.5;
+    white-space:pre;
+}
+
+/* PREVIEW */
+.preview{
+    width:50%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* Top Navigation */
+.top-navbar {
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background-color: #ffffff;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    background-color: #eff6ff;
+}
+
+.back-btn:active {
+    transform: translateY(0);
+}
+
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:auto;
+    }
+
+    .content{
+        flex-direction:column;
+    }
+
+    .codePanel{
+        width:100%;
+        height:50%;
+        border-right:none;
+        border-bottom:1px solid #ccc;
+    }
+
+    .preview{
+        width:100%;
+        height:50%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Lessons</h2>
+
+    <button onclick="loadLesson('Css_Use_Types')">CSS Types</button>
+    <button onclick="loadLesson('selectors')">Selectors</button>
+    <button onclick="loadLesson('properties')">Properties</button>
+    <button onclick="loadLesson('colors')">Colors</button>
+    <button onclick="loadLesson('typography')">Typography</button>
+    <button onclick="loadLesson('responsive')">Responsive</button>
+   
+</div>
+
+<!-- MAIN -->
+<div class="main">
+     <!-- Top Navigation -->
+    <div class="top-navbar">
+        <a href="/Html_Main.html" class="back-btn">
+            ← Back to HTML Dashboard
+        </a>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs" id="tabs">
+        <button class="active" onclick="showFile('html')">HTML</button>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- CODE PANEL -->
+        <div class="codePanel">
+
+            <div class="toolbar">
+                <span id="fileName">HTML</span>
+                <button onclick="copyCode()">📋 Copy</button>
+            </div>
+
+            <pre><code id="codeBox"></code></pre>
+
+        </div>
+
+        <!-- PREVIEW -->
+        <div class="preview">
+            <iframe id="preview"></iframe>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let currentLesson = "";
+let available = { html:false, css:false, js:false };
+
+/* CHECK FILE EXISTS */
+async function exists(file){
+    try{
+        const res = await fetch(file, { method:"HEAD" });
+        return res.ok;
+    }catch{
+        return false;
+    }
+}
+
+/* LOAD LESSON */
+async function loadLesson(name){
+
+    currentLesson = name;
+
+    document.getElementById("preview").src = name + ".html";
+
+    available.html = await exists(`${name}.html`);
+    available.css  = await exists(`${name}.css`);
+    available.js   = await exists(`${name}.js`);
+
+    buildTabs();
+
+    showFile("html");
+}
+
+/* BUILD TABS */
+function buildTabs(){
+
+    const tabs = document.getElementById("tabs");
+    tabs.innerHTML = "";
+
+    tabs.innerHTML += `<button class="active" onclick="showFile('html')">HTML</button>`;
+
+    if(available.css){
+        tabs.innerHTML += `<button onclick="showFile('css')">CSS</button>`;
+    }
+
+    if(available.js){
+        tabs.innerHTML += `<button onclick="showFile('js')">JS</button>`;
+    }
+}
+
+/* SHOW FILE */
+async function showFile(type){
+
+    document.querySelectorAll(".tabs button").forEach(b=>{
+        b.classList.remove("active");
+        if(b.textContent.toLowerCase() === type){
+            b.classList.add("active");
+        }
+    });
+
+    const file = `${currentLesson}.${type}`;
+
+    document.getElementById("fileName").textContent = file;
+
+    try{
+        const res = await fetch(file);
+        const text = await res.text();
+        document.getElementById("codeBox").textContent = text;
+    }
+    catch{
+        document.getElementById("codeBox").textContent =
+        "No " + type.toUpperCase() + " file found.";
+    }
+}
+
+/* COPY CODE */
+function copyCode(){
+    navigator.clipboard.writeText(
+        document.getElementById("codeBox").textContent
+    );
+    alert("Copied!");
+}
+
+/* INIT */
+loadLesson("Css_Use_Types");
+
+</script>
+
+</body>
+</html>
