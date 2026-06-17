@@ -1,137 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learning Hub Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub Dashboard</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-body{
-    background:#0f172a;
-    color:white;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-}
+        body {
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+        }
 
-/* HEADER */
-header{
-    padding:20px;
-    text-align:center;
-    background:#111827;
-    font-size:22px;
-    font-weight:bold;
-}
+        /* =========================
+           MOBILE WARNING (Hidden by Default)
+        ========================== */
+        #mobile-warning {
+            display: none;
+            height: 100vh;
+            width: 100%;
+            background: #0f172a;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+        }
 
-/* CONTAINER */
-.container{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
-    padding:20px;
-    flex-wrap:wrap;
-}
+        #mobile-warning h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
 
-/* CARD */
-.card{
-    width:280px;
-    height:220px;
-    background:#1e293b;
-    border-radius:15px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 10px 20px rgba(0,0,0,0.3);
-}
+        #mobile-warning p {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 500px;
+        }
 
-.card:hover{
-    transform:translateY(-8px);
-    background:#334155;
-}
+        /* =========================
+           MAIN DASHBOARD
+        ========================== */
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-.card h2{
-    margin-bottom:10px;
-}
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #111827;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-.card p{
-    text-align:center;
-    font-size:14px;
-    opacity:0.8;
-    padding:0 10px;
-}
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
 
-/* ICON STYLE */
-.icon{
-    font-size:50px;
-    margin-bottom:15px;
-}
+        .card {
+            width: 280px;
+            height: 220px;
+            background: #1e293b;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
 
-/* COLORS */
-.html{
-    border-top:4px solid #f97316;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            background: #334155;
+        }
 
-.css{
-    border-top:4px solid #3b82f6;
-}
+        .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:10px;
-    background:#111827;
-    font-size:12px;
-    opacity:0.7;
-}
-</style>
+        .card h2 {
+            margin-bottom: 10px;
+        }
 
+        .card p {
+            font-size: 14px;
+            opacity: 0.85;
+            padding: 0 15px;
+            line-height: 1.5;
+        }
+
+        .html {
+            border-top: 4px solid #f97316;
+        }
+
+        .css {
+            border-top: 4px solid #3b82f6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 12px;
+            background: #111827;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           MOBILE: HIDE DASHBOARD
+        ========================== */
+        @media (max-width: 767px) {
+            #main-content {
+                display: none;
+            }
+
+            #mobile-warning {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    🚀 Learning Dashboard Hub
-</header>
-
-<div class="container">
-
-    <!-- HTML CARD -->
-    <div class="card html" onclick="openPage('Html_Main.html')">
-        <div class="icon">📘</div>
-        <h2>HTML Learning</h2>
-        <p>Learn HTML basics, tags, tables, forms, and structure</p>
+    <!-- Mobile Message -->
+    <div id="mobile-warning">
+        <h1>📱 Desktop or Tablet Required</h1>
+        <p>
+            This learning dashboard is optimized for tablets and desktop computers.
+            Please open it on a larger screen for the best learning experience.
+        </p>
     </div>
 
-    <!-- CSS CARD -->
-    <div class="card css" onclick="openPage('/css/Css_Main.html')">
-        <div class="icon">🎨</div>
-        <h2>CSS Learning</h2>
-        <p>Learn styling, layouts, flexbox, grid, and responsive design</p>
+    <!-- Main Dashboard -->
+    <div id="main-content">
+
+        <header>
+            🚀 Learning Dashboard Hub
+        </header>
+
+        <div class="container">
+
+            <!-- HTML Card -->
+            <div class="card html" onclick="openPage('Html_Main.html')">
+                <div class="icon">📘</div>
+                <h2>HTML Learning</h2>
+                <p>Learn HTML basics, tags, tables, forms, and page structure.</p>
+            </div>
+
+            <!-- CSS Card -->
+            <div class="card css" onclick="openPage('/css/Css_Main.html')">
+                <div class="icon">🎨</div>
+                <h2>CSS Learning</h2>
+                <p>Learn styling, layouts, Flexbox, Grid, and responsive design.</p>
+            </div>
+
+        </div>
+
+        <footer>
+            Built for students learning web development 🚀
+        </footer>
+
     </div>
 
-</div>
-
-<footer>
-    Built for students learning web development 🚀
-</footer>
-
-<script>
-function openPage(page){
-    window.location.href = page;
-}
-</script>
+    <script>
+        function openPage(page) {
+            window.location.href = page;
+        }
+    </script>
 
 </body>
 </html>
